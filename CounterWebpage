@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Counter</title>
+    <!-- Use Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200 text-center max-w-sm w-full">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Simple Counter</h1>
+        
+        <!-- Display the counter value -->
+        <div id="counter-display" class="text-6xl font-extrabold text-blue-600 mb-8 transition-transform duration-300 ease-in-out">
+            0
+        </div>
+        
+        <!-- Counter control buttons -->
+        <div class="flex justify-center space-x-4">
+            <button id="decrease-btn" class="px-6 py-3 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-600 transition-colors duration-200">
+                Decrease
+            </button>
+            <button id="reset-btn" class="px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition-colors duration-200">
+                Reset
+            </button>
+            <button id="increase-btn" class="px-6 py-3 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 transition-colors duration-200">
+                Increase
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Get references to the HTML elements
+        const counterDisplay = document.getElementById('counter-display');
+        const increaseBtn = document.getElementById('increase-btn');
+        const decreaseBtn = document.getElementById('decrease-btn');
+        const resetBtn = document.getElementById('reset-btn');
+
+        // Initialize the counter value
+        let count = 0;
+
+        // Function to update the display
+        function updateDisplay() {
+            counterDisplay.textContent = count;
+        }
+
+        // Event listener for the Increase button
+        increaseBtn.addEventListener('click', () => {
+            count++;
+            updateDisplay();
+        });
+
+        // Event listener for the Decrease button
+        decreaseBtn.addEventListener('click', () => {
+            count--;
+            updateDisplay();
+        });
+
+        // Event listener for the Reset button
+        resetBtn.addEventListener('click', () => {
+            count = 0;
+            updateDisplay();
+        });
+
+        // Initial display update
+        updateDisplay();
+    </script>
+</body>
+</html>
